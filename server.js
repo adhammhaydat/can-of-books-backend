@@ -23,15 +23,15 @@ const seedBook=()=>{
     status:"beginer",
     title:"ADHAM MHAYDAT",},
     {
-      description:"web developer",
+      description:"full stack",
       status:"beginer",
-      title:"ADHAM MHAYDAT",
+      title:"MA'MOON",
       
     },
     {
-      description:"web developer",
+      description:"DESIGNER",
       status:"beginer",
-      title:"ADHAM MHAYDAT",
+      title:"THAA'ER",
       
     }]
     
@@ -40,8 +40,10 @@ const seedBook=()=>{
   newBook.save();
   console.log(newBook);
 }
-  seedBook();
+  // seedBook();
+  
 app.get('/book',bookController)
+
 
 const client = jwksClient({
   // this url comes from your app on the auth0 dashboard 
