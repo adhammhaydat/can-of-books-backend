@@ -13,7 +13,7 @@ const mongoose=require('mongoose')
 const bookController=require('./controllers/Book');
 
 
-mongoose.connect('mongodb://localhost:27017/Book', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost:27017/Book', {useNewUrlParser: true,useUnifiedTopology: true});
 
 const seedBook=()=>{
   const newBook=new Book({
@@ -55,10 +55,10 @@ const getKey=(header, callback)=>{
       callback(null, signingKey);
     });
 }
-app.get('/book',(req,res)=>{
+// app.get('/book',(req,res)=>{
 
   
-});
+// });
 
 
 
