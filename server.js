@@ -15,6 +15,7 @@ const {
   bookController,
   handelUserInput,
   deleteUser,
+  updatBooks,
 } = require("./controllers/Book");
 
 mongoose.connect("mongodb://localhost:27017/Book", {
@@ -25,26 +26,29 @@ mongoose.connect("mongodb://localhost:27017/Book", {
 const seedBook = () => {
   const newBook = new Book({
     email: "adhammohidat123@gmail.com",
-    aboutBooks: [
-      {
-        description: "web developer",
-        status: "beginer",
-        title: "ADHAM MHAYDAT",
-      },
-      {
-        description: "full stack",
-        status: "beginer",
-        title: "MA'MOON",
-      },
-      {
-        description: "DESIGNER",
-        status: "beginer",
-        title: "THAA'ER",
-      },
-    ],
+
+    description: "web developer",
+    status: "beginer",
+    title: "ADHAM MHAYDAT",
   });
   newBook.save();
-  console.log(newBook);
+
+  const newBook2 = new Book({
+    email: "hello@gmail.com",
+
+    description: "web developer",
+    status: "beginer",
+    title: "ma'moon",
+  });
+  newBook2.save();
+  const newBook3 = new Book({
+    email: "hiiii@gmail.com",
+
+    description: "web developer",
+    status: "beginer",
+    title: "thaa'er",
+  });
+  newBook3.save();
 };
 // seedBook();
 
@@ -53,6 +57,8 @@ app.get("/book", bookController);
 app.post("/user-input", handelUserInput);
 
 app.delete("/user-delete/:id", deleteUser);
+
+app.put("/updat-data/:id", updatBooks);
 
 const client = jwksClient({
   // this url comes from your app on the auth0 dashboard
@@ -77,7 +83,6 @@ app.get("/auth", (request, response) => {
       response.send("invalid token");
     }
     response.send(user);
-    console.log("hiiii");
   });
   // TODO:
   // STEP 1: get the jwt from the headers
